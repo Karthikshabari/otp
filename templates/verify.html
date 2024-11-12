@@ -48,13 +48,13 @@
         h2 {
             color: #2575fc; /* Set title color to blue */
             text-align: center;
-            margin-bottom: 30px; /* Adjust margin for better spacing */
-            font-size: 2.5rem;
+            margin-bottom: 50px; /* Increased margin bottom for more space */
+            font-size: 3rem;
             overflow: hidden;
             border-right: 4px solid #2575fc;
             width: 0;
-            animation: typeEffect 2.5s steps(30) 1s forwards, bounceIn 1s ease-in-out;
-            padding-top: 40px; /* Add spacing at the top */
+            animation: typeEffect 3s steps(30) 1s forwards, bounceIn 1s ease-in-out;
+            padding-top: 60px; /* Increased top padding for more space above title */
         }
 
         /* Bounce Animation for Title */
@@ -79,9 +79,9 @@
             background-color: white;
             border-radius: 15px;
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            margin-top: 50px;
-            max-width: 500px;
+            padding: 50px;
+            margin-top: 80px;
+            max-width: 600px; /* Increased max-width */
             animation: slideUp 1s ease-out;
         }
 
@@ -105,6 +105,8 @@
             transition: all 0.3s ease;
             font-weight: bold;
             border-radius: 10px;
+            padding: 15px 25px;
+            font-size: 1.5rem; /* Increased font size */
         }
 
         /* Bounce Effect on Button Hover */
@@ -132,7 +134,7 @@
         .form-control {
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 25px; /* Increased bottom margin for spacing */
+            margin-bottom: 40px; /* Increased bottom margin for more space */
             transition: all 0.3s ease;
             padding-left: 35px; /* Space for icon */
         }
@@ -144,17 +146,17 @@
 
         /* Label Styling with floating effect */
         .form-group label {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: #2575fc; /* Set label color to blue */
             position: absolute;
-            top: -20px;
+            top: -25px;
             left: 10px;
             transition: all 0.3s ease;
         }
 
         .form-control:focus + label {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #2575fc;
         }
 
@@ -190,10 +192,12 @@
                 <label for="otp">OTP:</label>
                 <input type="text" class="form-control" id="otp" name="otp" placeholder="Enter the OTP" required>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Verify OTP</button>
-        </form>
 
-        
+            <!-- Proper spacing between the form fields and button -->
+            <div class="form-group mt-5">
+                <button type="submit" class="btn btn-primary btn-block">Verify OTP</button>
+            </div>
+        </form>
     </div>
 
     <!-- Include Bootstrap JS and dependencies -->
