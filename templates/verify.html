@@ -17,57 +17,15 @@
             background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient Background */
             font-family: 'Poppins', sans-serif;
             color: #fff;
+            animation: fadeInPage 1s ease-out;
+            cursor: url('https://cdn.jsdelivr.net/gh/stevenharris/Custom-Cursors/cursors/space-cursor.png'), auto;
         }
 
-        /* Container Styling */
-        .container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            margin-top: 100px;
-            max-width: 500px;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        /* Heading Styling */
-        h2 {
-            color: #6a11cb;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        /* Button Styling */
-        .btn-primary {
-            background-color: #2575fc;
-            border: none;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .btn-primary:hover {
-            background-color: #6a11cb;
-            transform: translateY(-2px);
-        }
-
-        /* Input fields */
-        .form-control {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            border-color: #2575fc;
-            box-shadow: 0 0 8px rgba(37, 117, 252, 0.5);
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
+        /* Page Fade-in Effect */
+        @keyframes fadeInPage {
             0% {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(30px);
             }
 
             100% {
@@ -76,29 +34,166 @@
             }
         }
 
-        /* Alert Styling */
+        /* Title Animation (Text typing effect) */
+        @keyframes typeEffect {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        h2 {
+            color: #2575fc; /* Set title color to blue */
+            text-align: center;
+            margin-bottom: 30px; /* Adjust margin for better spacing */
+            font-size: 2.5rem;
+            overflow: hidden;
+            border-right: 4px solid #2575fc;
+            width: 0;
+            animation: typeEffect 2.5s steps(30) 1s forwards, bounceIn 1s ease-in-out;
+            padding-top: 40px; /* Add spacing at the top */
+        }
+
+        /* Bounce Animation for Title */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Container Styling */
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-top: 50px;
+            max-width: 500px;
+            animation: slideUp 1s ease-out;
+        }
+
+        /* Slide Up Animation for the Form */
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background-color: #2575fc;
+            border: none;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        /* Bounce Effect on Button Hover */
+        .btn-primary:hover {
+            animation: bounceButton 0.5s ease;
+            cursor: pointer;
+        }
+
+        /* Bounce Button Animation */
+        @keyframes bounceButton {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Form Fields */
+        .form-control {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px; /* Increased bottom margin for spacing */
+            transition: all 0.3s ease;
+            padding-left: 35px; /* Space for icon */
+        }
+
+        .form-control:focus {
+            border-color: #2575fc;
+            box-shadow: 0 0 8px rgba(37, 117, 252, 0.5);
+        }
+
+        /* Label Styling with floating effect */
+        .form-group label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2575fc; /* Set label color to blue */
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus + label {
+            font-size: 1rem;
+            color: #2575fc;
+        }
+
+        /* Alert Styling with Slide-in Effect */
         .alert {
             border-radius: 10px;
-            animation: fadeIn 1s ease-out;
+            animation: slideInAlert 0.5s ease-in-out;
         }
+
+        @keyframes slideInAlert {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
     <div class="container">
-        <h2>Verify OTP</h2>
+        <h2>Enter OTP</h2>
 
         <!-- OTP Verification Form -->
         <form action="/verify" method="POST">
-            <div class="form-group">
-                <label for="otp">Enter OTP:</label>
-                <input type="text" class="form-control" id="otp" name="otp" placeholder="Enter OTP sent to your email" required>
+            <div class="form-group position-relative">
+                <label for="otp">OTP:</label>
+                <input type="text" class="form-control" id="otp" name="otp" placeholder="Enter the OTP" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Verify OTP</button>
         </form>
 
-    
+        
     </div>
 
     <!-- Include Bootstrap JS and dependencies -->
